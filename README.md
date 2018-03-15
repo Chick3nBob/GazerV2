@@ -14,10 +14,10 @@ AND MORE
 How to install and use for yourself?
 -------------
 
-1.) Download this project or git clone.
-2.) In you console (cmd) locate your this folder and open it. (Within CMD)
-3.) Run the following command in cmd `npm install`. That should install all the packages that you will need for the bot.
-4.) Now head over to the main file of the bot `commando.js` and replace the following
+- 1.) Download this project or git clone.
+- 2.) In you console (cmd) locate your this folder and open it. (Within CMD)
+- 3.) Run the following command in cmd `npm install`. That should install all the packages that you will need for the bot.
+- 4.) Now head over to the main file of the bot `commando.js` and replace the following
 ```js
 const path = require('path');
 const Commando = require('discord.js-commando');
@@ -76,23 +76,23 @@ client.setProvider(
 
 client.registry
 .registerGroups([
-	['moderation', 'Moderation'],
-	['response', 'Random Response'],
+  ['moderation', 'Moderation'],
+  ['response', 'Random Response'],
   ['info', 'Info'],
-	['search', 'Search'],
+  ['search', 'Search'],
   ['avatar-edit', 'Avatar Manipulation'],
   ['role-manage', 'Role Manage'],
-	['games', 'Games'],
-	['settings', 'Server Settings']
+  ['games', 'Games'],
+  ['settings', 'Server Settings']
 ])
-	.registerDefaults()
-	.registerCommandsIn(path.join(__dirname, 'commands'));
+.registerDefaults()
+.registerCommandsIn(path.join(__dirname, 'commands'));
 
 client.login("YOUR_BOT_TOKEN");
 ```
 
-5.) Go back to console and run the following command `node --harmony commando.js`
-6.) Have fun :D
+- 5.) Go back to console and run the following command `node --harmony commando.js`
+- 6.) Have fun :D
 
 Credits
 --------
