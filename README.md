@@ -1,100 +1,52 @@
-# GazerV2
+# Coding A Discord Bot
+Discord.JS
 
-[Discord Server](https://discord.gg/5dGwF2T)
-
-Packages
----------
-- discord.js ( Main Libray )
-- sqlite ( Main Database )
-- moment ( Timer )
-- weather.js ( Searching Weather )
-AND MORE
+Getting Started
+If you do not know anything about coding in JavaScript then I suggest you go to one these websites to learn.
+- https://www.sololearn.com/Course/JavaScript/
+ - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
+ - https://www.khanacademy.org/computing/computer-programming
 
 
-How to install and use for yourself?
--------------
 
-- 1.) Download this project or git clone.
-- 2.) In you console (cmd) locate your this folder and open it. (Within CMD)
-- 3.) Run the following command in cmd `npm install`. That should install all the packages that you will need for the bot.
-- 4.) Now head over to the main file of the bot `commando.js` and replace the following
+**Starting on the coding**
+
+
+-1.) Make a folder with a file named `bot.js`
+
+-2.) Open that file in CMD
+
+-3.) Do `npm install discord.js --save`
+
+-4.) Copy starting off copy at bottom and paste in VS or Atom
+
+-5.) Go to https://discordapp.com/developers/applications/me to create your bot
+
+-6.) Click on Client's ID and copy that.
+
+-7.) Go to https://discordapi.com/permissions.html and ID where it says `Client ID:`
+
+-8.) Copy your client's token and replace that with `your_token` in the code.
+
+-9.) Once all done, go back to CMD and do `node bot.js` and your bot should run. 
+
+
+
+**Basic Starting Code**
+
 ```js
-const path = require('path');
-const Commando = require('discord.js-commando');
-const oneLine = require('common-tags').oneLine;
-const sql = require('sqlite');
-const client = new Commando.Client({
-	owner: ['YOUR_ID'],
-	unknownCommandResponse: false,
-	commandPrefix: '$'
+const Discord = require('discord.js');
+const client = new Discord.Client();
+
+client.on('ready', () => {
+   console.log('I am ready!');
 });
 
-client
-	.on('error', console.error)
-	.on('warn', console.warn)
-	.on('debug', console.log)
-	.on('ready', () => {
-    client.user.setGame('@Gazer#3861 help')
-		console.log(`Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`);
-	})
-	.on('disconnect', () => { console.warn('Disconnected!'); })
-	.on('reconnecting', () => { console.warn('Reconnecting...'); })
-	.on('commandError', (cmd, err) => {
-		if(err instanceof Commando.FriendlyError) return;
-		console.error(`Error in command ${cmd.groupID}:${cmd.memberName}`, err);
-})
-	.on('commandBlocked', (msg, reason) => {
-		console.log(oneLine`
-			Command ${msg.command ? `${msg.command.groupID}:${msg.command.memberName}` : ''}
-			blocked; ${reason}
-		`);
-	})
-	.on('commandPrefixChange', (guild, prefix) => {
-		console.log(oneLine`
-			Prefix ${prefix === '' ? 'removed' : `changed to ${prefix || 'the default'}`}
-			${guild ? `in guild ${guild.name} (${guild.id})` : 'globally'}.
-		`);
-	})
-	.on('commandStatusChange', (guild, command, enabled) => {
-		console.log(oneLine`
-			Command ${command.groupID}:${command.memberName}
-			${enabled ? 'enabled' : 'disabled'}
-			${guild ? `in guild ${guild.name} (${guild.id})` : 'globally'}.
-		`);
-	})
-	.on('groupStatusChange', (guild, group, enabled) => {
-		console.log(oneLine`
-			Group ${group.id}
-			${enabled ? 'enabled' : 'disabled'}
-			${guild ? `in guild ${guild.name} (${guild.id})` : 'globally'}.
-		`);
-	});
+client.on('message', message => {
+   if (message.content === 'ping') {
+       message.reply('pong');
+ }
+});
 
-client.setProvider(
-	sql.open(path.join(__dirname, 'database.sqlite3')).then(db => new Commando.SQLiteProvider(db))
-).catch(console.error);
-
-client.registry
-.registerGroups([
-  ['moderation', 'Moderation'],
-  ['response', 'Random Response'],
-  ['info', 'Info'],
-  ['search', 'Search'],
-  ['avatar-edit', 'Avatar Manipulation'],
-  ['role-manage', 'Role Manage'],
-  ['games', 'Games'],
-  ['settings', 'Server Settings']
-])
-.registerDefaults()
-.registerCommandsIn(path.join(__dirname, 'commands'));
-
-client.login("YOUR_BOT_TOKEN");
+client.login('your token');
 ```
-
-- 5.) Go back to console and run the following command `node --harmony commando.js`
-- 6.) Have fun :D
-
-Credits
---------
-
-All credits goes to `PainFX#4965` and `allte#4008` for making this all happen. 
