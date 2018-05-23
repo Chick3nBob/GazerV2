@@ -1,52 +1,19 @@
-# Coding A Discord Bot
-Discord.JS
+# Gazer Bot
+=========
 
-Getting Started
-If you do not know anything about coding in JavaScript then I suggest you go to one these websites to learn.
-- https://www.sololearn.com/Course/JavaScript/
- - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
- - https://www.khanacademy.org/computing/computer-programming
+Lets say Gazer had a little vacation for a few months and wanted to get back on his feet. Well now he is coming back and better than ever. The features he will have can and will blow your mind anyway. No this is no advertisment to use the code but you need to respect his style and life :D.
 
+[Discord Server](https://discord.gg/5dGwF2T)
 
+*All Coded In JavaScript*
 
-**Starting on the coding**
-
-
--1.) Make a folder with a file named `bot.js`
-
--2.) Open that file in CMD
-
--3.) Do `npm install discord.js --save`
-
--4.) Copy starting off copy at bottom and paste in VS or Atom
-
--5.) Go to https://discordapp.com/developers/applications/me to create your bot
-
--6.) Click on Client's ID and copy that.
-
--7.) Go to https://discordapi.com/permissions.html and ID where it says `Client ID:`
-
--8.) Copy your client's token and replace that with `your_token` in the code.
-
--9.) Once all done, go back to CMD and do `node bot.js` and your bot should run. 
+Packages
+---------
+- discord.js ( Main Libray )
 
 
 
-**Basic Starting Code**
+Credits
+--------
 
-```js
-const Discord = require('discord.js');
-const client = new Discord.Client();
-
-client.on('ready', () => {
-   console.log('I am ready!');
-});
-
-client.on('message', message => {
-   if (message.content === 'ping') {
-       message.reply('pong');
- }
-});
-
-client.login('your token');
-```
+- PainFX#0001
