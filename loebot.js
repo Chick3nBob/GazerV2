@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const fs = require('fs');
 const client = new Discord.Client();
 const db = require('quick.db');
-const prefix = "/"
+const prefix = "$"
 
 
 // Ready - Listeners
